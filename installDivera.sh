@@ -3,9 +3,9 @@
 # Get user input
 
 echo "Enter Dashboard ID:"
-dashboardID
+read dashboardID
 echo "Enter autologin key:"
-loginKey
+read loginKey
 
 URL="https://app.divera247.com/spa-next/dashboard/$dashboardID?autologin=$loginKey&theme=dark"
 
@@ -17,34 +17,36 @@ echo $URL
 
 # Leave program when user does not verify URL
 read -p "Is the URL correct? [y/n]: " yesNo 
-if [$yesNo != "y"]
+if [ $yesNo != "y" ]
     then
     echo "Leaving installation script!"
     exit
 fi
 
 # Create divera directory
-mkdir /etc/divera
+sudo mkdir -p /etc/divera
 
-# Writing URL file
-$URL > /etc/divera/dashboardURL
+# Create startup script file
+sudo touch /etc/divera/diveraStart.sh
 
 # Create startup script
-cat << /etc/divera/diveraStart.sh
-\#!/bin/bash
+cat <<EOT > /etc/divera/diveraStart.sh
+#!/bin/bash
 
-URL << /etc/divera/dashboardURL
-
+URL="$URL"
 xset s off
 xset s noblank
 xset -dpms
 
-chromium-browser --noerrdialogs --kiosk --incognito $URL &>/dev/null &
-
-/etc/divera/diveraStart.sh
+chromium-browser --noerrdialogs --kiosk --incognito \$URL &>/dev/null &
+EOT
 
 # File must be executable
 chmod +x /etc/divera/diveraStart.sh
 
-# Add startup script ot autostart
-"@sh /etc/diveraStart.sh" >> /etc/xdg/lxsession/LXDE-pi/autostart
+# Write autostart file
+cat <<EOT > /etc/xdg/lxsession/LXDE-pi/autostart
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@sh /etc/diveraStart.sh
+EOT
