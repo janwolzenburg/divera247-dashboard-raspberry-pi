@@ -7,7 +7,7 @@ Divera24/7 Dashboard installation on a Raspberry-Pi
 - One DIVERA 24/7 dashboard
 
 ### Attention
-Changes related to the Pi's autostart may break funcionality. A working internet connection is necessary when rebooting for loading the dashboard.
+Changes related to the Pi's autostart may break functionality.
 
 
 ### Installation
