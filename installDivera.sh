@@ -48,5 +48,5 @@ chmod +x /etc/divera/diveraStart.sh
 cat <<EOT > /etc/xdg/lxsession/LXDE-pi/autostart
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
-@sh /etc/diveraStart.sh
+@sh /etc/divera/diveraStart.sh
 EOT
