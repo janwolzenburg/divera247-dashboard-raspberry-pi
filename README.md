@@ -1,4 +1,4 @@
-# divera247-raspberry-pi
+# divera247-dashboard-raspberry-pi
 Divera24/7 Dashboard installation on a Raspberry-Pi
 
 ## Prerequisites
@@ -15,8 +15,8 @@ Changes related to the Pi's autostart may break functionality.
 ### Execute installtion script
 ```
 cd /home/pi/Desktop
-git clone https://github.com/janwolzenburg/divera247-raspberry-pi
-cd divera247-raspberry-pi
+git clone https://github.com/janwolzenburg/divera247-dashboard-raspberry-pi
+cd divera247-dashboard-raspberry-pi
 sudo chmod +x installDivera.sh
 sudo ./installDivera.sh
 ```
