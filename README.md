@@ -24,5 +24,5 @@ sudo ./installDivera.sh
 ### Notes
 - enter dashboard-ID and autologin key
 - the dashboard-ID is visible in the dashboard overview when logged in as a DIVERA 24/7 user
-- the autologin key is visible when you are logged in as an administrator for a monitor user
+- the autologin key is visible when you are logged in as an administrator in the "monitor" category
 - the user who created the dashboard must be the monitor user with the autologin key
